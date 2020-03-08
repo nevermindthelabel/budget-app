@@ -6,12 +6,18 @@ let budgetController = (function () {
 // ui controller
 let UIController = (function () {
 
+  let DOMStrings = {
+    inputType: '.add__type',
+    inputDescription: '.add__description',
+    inputValue: '.add__value'
+  }
+
   return {
     getInput: function () {
       return {
-        type: document.querySelector('.add__type').value,// either inc or exp
-        description: document.querySelector('.add__description').value,
-        value: document.querySelector('.add__value').value
+        type: document.querySelector(DOMStrings.inputType).value,// either inc or exp
+        description: document.querySelector(DOMStrings.inputDescription).value,
+        value: document.querySelector(DOMStrings.inputValue).value
       }
     }
   }
@@ -23,12 +29,12 @@ let appController = (function (budgetCtrl, UICtrl) {
 
   let controlAddItem = function () {
     // TODO  get input value
-
+    let input = UICtrl.getInput();
+    console.log(input);
     // TODO add item to budget controller
     // TODO add item to UI
     // TODO calculate budget
     // TODO display budget on UI
-    console.log('working');
   }
 
   document.querySelector('.add__btn').addEventListener('click', controlAddItem);
