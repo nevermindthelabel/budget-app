@@ -9,7 +9,8 @@ let UIController = (function () {
   let DOMStrings = {
     inputType: '.add__type',
     inputDescription: '.add__description',
-    inputValue: '.add__value'
+    inputValue: '.add__value',
+    inputBtn: '.add__btn'
   }
 
   return {
@@ -19,13 +20,18 @@ let UIController = (function () {
         description: document.querySelector(DOMStrings.inputDescription).value,
         value: document.querySelector(DOMStrings.inputValue).value
       }
+    },
+    getDOMStrings: function () {
+      return DOMStrings;
     }
-  }
+  };
 
 })();
 
 //global controller
 let appController = (function (budgetCtrl, UICtrl) {
+
+  let DOM = UICtrl.getDOMStrings();
 
   let controlAddItem = function () {
     // TODO  get input value
@@ -37,7 +43,7 @@ let appController = (function (budgetCtrl, UICtrl) {
     // TODO display budget on UI
   }
 
-  document.querySelector('.add__btn').addEventListener('click', controlAddItem);
+  document.querySelector(DOM.inputBtn).addEventListener('click', controlAddItem);
 
   document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13 || event.which === 13) {
