@@ -90,6 +90,7 @@ let appController = (function (budgetCtrl, UICtrl) {
     let input = UICtrl.getInput();
     console.log(input);
     // TODO add item to budget controller
+    let newItem = budgetCtrl.addItem(input.type, input.description, input.value);
     // TODO add item to UI
     // TODO calculate budget
     // TODO display budget on UI
