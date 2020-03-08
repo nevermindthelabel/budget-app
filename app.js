@@ -28,15 +28,19 @@ let budgetController = (function () {
 
     addItem: function (type, des, val) {
       let newItem, ID;
-      ID = 0;
+      // create new ID
+      ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
 
+      // create new item based on type
       if (type === 'exp') {
         newItem = new Expense(ID, des, val);
       } else if (type === 'inc') {
         newItem = new Income(ID, des, val);
       }
 
+      // push new item into array
       data.allItems[type].push(newItem);
+      // return new type
       return newItem;
     }
   };
