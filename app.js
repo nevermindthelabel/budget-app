@@ -29,7 +29,11 @@ let budgetController = (function () {
     addItem: function (type, des, val) {
       let newItem, ID;
       // create new ID
-      ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+      if (data.allItems[type].length > 0) {
+        ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+      } else {
+        ID = 0;
+      }
 
       // create new item based on type
       if (type === 'exp') {
@@ -64,6 +68,36 @@ let UIController = (function () {
         description: document.querySelector(DOMStrings.inputDescription).value,
         value: document.querySelector(DOMStrings.inputValue).value
       }
+    },
+    addListItem: function (obj, type) {
+      // create HTML string
+      let html;
+      if (type === 'inc') {
+        html =
+          `<div class="item clearfix" id="income-0">
+             <div class="item__description">Salary</div>
+               <div class="right clearfix">
+                 <div class="item__value">+ 2,100.00</div>
+                   <div class="item__delete">
+                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                 </div>
+              </div>
+           </div>`;
+      } else {
+        html =
+          `<div class="item clearfix" id="expense-0">
+             <div class="item__description">Apartment rent</div>
+               <div class="right clearfix">
+                 <div class="item__value">- 900.00</div>
+                   <div class="item__percentage">21%</div>
+                     <div class="item__delete">
+                       <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                     </div>
+                   </div>
+           </div>`;
+      }
+      // replace string with data from input object
+      // insert HTML into DOM
     },
     getDOMStrings: function () {
       return DOMStrings;
