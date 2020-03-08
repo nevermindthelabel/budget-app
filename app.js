@@ -31,7 +31,15 @@ let UIController = (function () {
 //global controller
 let appController = (function (budgetCtrl, UICtrl) {
 
-  let DOM = UICtrl.getDOMStrings();
+  function setUpEventListeners() {
+    let DOM = UICtrl.getDOMStrings();
+    document.querySelector(DOM.inputBtn).addEventListener('click', controlAddItem);
+    document.addEventListener('keypress', function (event) {
+      if (event.keyCode === 13 || event.which === 13) {
+        controlAddItem();
+      }
+    });
+  }
 
   let controlAddItem = function () {
     // TODO  get input value
@@ -43,14 +51,12 @@ let appController = (function (budgetCtrl, UICtrl) {
     // TODO display budget on UI
   }
 
-  document.querySelector(DOM.inputBtn).addEventListener('click', controlAddItem);
-
-  document.addEventListener('keypress', function (event) {
-    if (event.keyCode === 13 || event.which === 13) {
-      controlAddItem();
+  return {
+    init: function() {
+      setUpEventListeners();
     }
-  });
+  }
 
 })(budgetController, UIController);
 
-
+appController.init();
