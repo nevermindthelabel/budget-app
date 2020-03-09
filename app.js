@@ -120,7 +120,7 @@ let UIController = (function () {
 
 })();
 
-//global controller
+// global controller
 let appController = (function (budgetCtrl, UICtrl) {
 
   function setUpEventListeners() {
@@ -133,6 +133,12 @@ let appController = (function (budgetCtrl, UICtrl) {
     });
   }
 
+  let updateBudget = function () {
+    // TODO calculate budget
+    // TODO return budget
+    // TODO display budget on UI
+  };
+
   let controlAddItem = function () {
     // get input value
     let input = UICtrl.getInput();
@@ -143,8 +149,7 @@ let appController = (function (budgetCtrl, UICtrl) {
     UICtrl.addListItem(newItem, input.type);
     // clear input fields
     UICtrl.clearFields();
-    // TODO calculate budget
-    // TODO display budget on UI
+
   }
 
   return {
