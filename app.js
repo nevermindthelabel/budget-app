@@ -46,6 +46,9 @@ let budgetController = (function () {
       data.allItems[type].push(newItem);
       // return new type
       return newItem;
+    },
+    testing: function () {
+      console.log(data);
     }
   };
 
@@ -68,7 +71,7 @@ let UIController = (function () {
       return {
         type: document.querySelector(DOMStrings.inputType).value,// either inc or exp
         description: document.querySelector(DOMStrings.inputDescription).value,
-        value: document.querySelector(DOMStrings.inputValue).value
+        value: parseFloat(document.querySelector(DOMStrings.inputValue).value)
       }
     },
     addListItem: function (obj, type) {
@@ -135,6 +138,7 @@ let appController = (function (budgetCtrl, UICtrl) {
 
   let updateBudget = function () {
     // TODO calculate budget
+
     // TODO return budget
     // TODO display budget on UI
   };
@@ -149,7 +153,8 @@ let appController = (function (budgetCtrl, UICtrl) {
     UICtrl.addListItem(newItem, input.type);
     // clear input fields
     UICtrl.clearFields();
-
+    // calc & update budget
+    updateBudget();
   }
 
   return {
