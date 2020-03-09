@@ -111,7 +111,7 @@ let UIController = (function () {
       fieldsArray.forEach(function (current) {
         current.value = '';
       });
-
+      fieldsArray[0].focus();
     },
     getDOMStrings: function () {
       return DOMStrings;
