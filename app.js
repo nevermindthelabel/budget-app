@@ -104,6 +104,11 @@ let UIController = (function () {
       // insert HTML into DOM
       document.querySelector(element).insertAdjacentHTML('beforeend', html)
     },
+    clearFields: function () {
+      let fields = document.querySelectorAll(`${DOMStrings.inputDescription}, ${DOMStrings.inputValue}`);
+      let fieldsArray = Array.prototype.slice.call(fields);
+      console.log(fields, fieldsArray);
+    },
     getDOMStrings: function () {
       return DOMStrings;
     }
