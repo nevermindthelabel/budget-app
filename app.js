@@ -58,7 +58,9 @@ let UIController = (function () {
     inputType: '.add__type',
     inputDescription: '.add__description',
     inputValue: '.add__value',
-    inputBtn: '.add__btn'
+    inputBtn: '.add__btn',
+    incomeContainer: '.income__list',
+    expenseContainer: '.expenses__list'
   }
 
   return {
@@ -72,23 +74,26 @@ let UIController = (function () {
     addListItem: function (obj, type) {
       // create HTML string
       let html;
+      let element;
       if (type === 'inc') {
+        element = DOMStrings.incomeContainer;
         html =
-          `<div class="item clearfix" id="income-0">
-             <div class="item__description">Salary</div>
+          `<div class="item clearfix" id="income-${obj.id}">
+             <div class="item__description">${obj.description}</div>
                <div class="right clearfix">
-                 <div class="item__value">+ 2,100.00</div>
+                 <div class="item__value">${obj.value}</div>
                    <div class="item__delete">
                     <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
                  </div>
               </div>
            </div>`;
       } else {
+        element = DOMStrings.expenseContainer;
         html =
-          `<div class="item clearfix" id="expense-0">
-             <div class="item__description">Apartment rent</div>
+          `<div class="item clearfix" id="expense-${obj.id}">
+             <div class="item__description">${obj.description}</div>
                <div class="right clearfix">
-                 <div class="item__value">- 900.00</div>
+                 <div class="item__value">${obj.value}</div>
                    <div class="item__percentage">21%</div>
                      <div class="item__delete">
                        <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
@@ -96,8 +101,8 @@ let UIController = (function () {
                    </div>
            </div>`;
       }
-      // replace string with data from input object
       // insert HTML into DOM
+      document.querySelector(element).insertAdjacentHTML('beforeend', html)
     },
     getDOMStrings: function () {
       return DOMStrings;
@@ -126,6 +131,7 @@ let appController = (function (budgetCtrl, UICtrl) {
     // TODO add item to budget controller
     let newItem = budgetCtrl.addItem(input.type, input.description, input.value);
     // TODO add item to UI
+    UICtrl.addListItem(newItem, input.type);
     // TODO calculate budget
     // TODO display budget on UI
   }
