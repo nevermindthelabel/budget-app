@@ -107,7 +107,11 @@ let UIController = (function () {
     clearFields: function () {
       let fields = document.querySelectorAll(`${DOMStrings.inputDescription}, ${DOMStrings.inputValue}`);
       let fieldsArray = Array.prototype.slice.call(fields);
-      console.log(fields, fieldsArray);
+
+      fieldsArray.forEach(function (current) {
+        current.value = '';
+      });
+
     },
     getDOMStrings: function () {
       return DOMStrings;
@@ -130,13 +134,15 @@ let appController = (function (budgetCtrl, UICtrl) {
   }
 
   let controlAddItem = function () {
-    // TODO  get input value
+    // get input value
     let input = UICtrl.getInput();
     console.log(input);
-    // TODO add item to budget controller
+    // add item to budget controller
     let newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-    // TODO add item to UI
+    // add item to UI
     UICtrl.addListItem(newItem, input.type);
+    // clear input fields
+    UICtrl.clearFields();
     // TODO calculate budget
     // TODO display budget on UI
   }
