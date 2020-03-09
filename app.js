@@ -166,8 +166,10 @@ let appController = (function (budgetCtrl, UICtrl) {
   let updateBudget = function () {
     // calculate budget
     budgetController.calculateBudget();
-    // TODO return budget
+    // return budget
+    let budget = budgetController.getBudget();
     // TODO display budget on UI
+    console.log(budget)
   };
 
   let controlAddItem = function () {
