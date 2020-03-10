@@ -189,7 +189,7 @@ let appController = (function (budgetCtrl, UICtrl) {
     // return budget
     let budget = budgetController.getBudget();
     // TODO display budget on UI
-   UIController.displayBudget(budget);
+    UIController.displayBudget(budget);
   };
 
   let controlAddItem = function () {
@@ -209,6 +209,12 @@ let appController = (function (budgetCtrl, UICtrl) {
 
   return {
     init: function () {
+      UIController.displayBudget({
+        budget: 0,
+        totalIncome: 0,
+        totalExpense: 0,
+        percentage: 0
+      });
       setUpEventListeners();
     }
   }
