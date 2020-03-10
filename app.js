@@ -153,8 +153,8 @@ let UIController = (function () {
     },
     displayBudget: function (obj) {
       document.querySelector(DOMStrings.budgetLabel).textContent = obj.budget;
-      document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalInc;
-      document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExp;
+      document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalIncome;
+      document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExpense;
       document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage;
     },
     getDOMStrings: function () {
