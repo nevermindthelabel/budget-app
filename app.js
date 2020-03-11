@@ -222,6 +222,11 @@ let appController = (function (budgetCtrl, UICtrl) {
       let type = splitId[0];
       // store id in variable
       let id = splitId[1];
+      // TODO delete item from data
+
+      // TODO remove item from DOM
+
+      // TODO update and show new budget
     }
   };
 
