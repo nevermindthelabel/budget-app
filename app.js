@@ -216,7 +216,12 @@ let appController = (function (budgetCtrl, UICtrl) {
     let itemId = event.target.parentNode.parentNode.parentNode.parentNode.id;
 
     if (itemId) {
-
+      // get html id attribute and split into array
+      let splitId = itemId.split('-');
+      // get type inc || exp
+      let type = splitId[0];
+      // store id in variable
+      let id = splitId[1];
     }
   };
 
