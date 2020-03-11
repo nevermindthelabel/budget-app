@@ -58,7 +58,15 @@ let budgetController = (function () {
       return newItem;
     },
     deleteItem: function (type, id) {
+      let ids = data.allItems[type].map(function (current) {
+        return current.id
+      });
 
+      let index = ids.indexOf(id);
+
+      if (index !== -1) {
+        data.allItems[type].splice(index, 1);
+      }
     },
     calculateBudget: function () {
       // calc total income & expenses
@@ -224,9 +232,9 @@ let appController = (function (budgetCtrl, UICtrl) {
       // get type inc || exp
       let type = splitId[0];
       // store id in variable
-      let id = splitId[1];
-      // TODO delete item from data
-
+      let id = parseInt(splitId[1]);
+      // delete item from data
+      budgetController.deleteItem(type, id);
       // TODO remove item from DOM
 
       // TODO update and show new budget
