@@ -212,7 +212,7 @@ let appController = (function (budgetCtrl, UICtrl) {
   };
 
   let controlDeleteItem = function (event) {
-    console.log(event)
+    console.log(event.target.parentNode.parentNode.parentNode.parentNode.id);
   };
 
   return {
