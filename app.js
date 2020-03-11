@@ -57,6 +57,9 @@ let budgetController = (function () {
       // return new type
       return newItem;
     },
+    deleteItem: function (type, id) {
+
+    },
     calculateBudget: function () {
       // calc total income & expenses
       calculateTotal('exp');
