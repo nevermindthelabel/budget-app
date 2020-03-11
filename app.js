@@ -183,7 +183,7 @@ let appController = (function (budgetCtrl, UICtrl) {
       }
     });
 
-    document.querySelector(DOM).addEventListener('click', controlDeleteItem)
+    document.querySelector(DOM.container).addEventListener('click', controlDeleteItem)
 
   }
 
@@ -209,7 +209,11 @@ let appController = (function (budgetCtrl, UICtrl) {
       // calc & update budget
       updateBudget();
     }
-  }
+  };
+
+  let controlDeleteItem = function (event) {
+    console.log(event)
+  };
 
   return {
     init: function () {
