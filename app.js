@@ -240,7 +240,7 @@ let appController = (function (budgetCtrl, UICtrl) {
       // delete item from data
       budgetController.deleteItem(type, id);
       // TODO remove item from DOM
-
+      UIController.deleteListItem(itemId);
       // TODO update and show new budget
     }
   };
