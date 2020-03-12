@@ -239,9 +239,10 @@ let appController = (function (budgetCtrl, UICtrl) {
       let id = parseInt(splitId[1]);
       // delete item from data
       budgetController.deleteItem(type, id);
-      // TODO remove item from DOM
+      // remove item from DOM
       UIController.deleteListItem(itemId);
-      // TODO update and show new budget
+      // update and show new budget
+      updateBudget();
     }
   };
 
