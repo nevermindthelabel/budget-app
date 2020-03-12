@@ -154,6 +154,10 @@ let UIController = (function () {
       // insert HTML into DOM
       document.querySelector(element).insertAdjacentHTML('beforeend', html)
     },
+    deleteListItem: function (selectorId) {
+      let el = document.getElementById(selectorId);
+      el.parentNode.removeChild(el);
+    },
     clearFields: function () {
       let fields = document.querySelectorAll(`${DOMStrings.inputDescription}, ${DOMStrings.inputValue}`);
       let fieldsArray = Array.prototype.slice.call(fields);
