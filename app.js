@@ -95,7 +95,9 @@ let budgetController = (function () {
       }
     },
     calculatePercentages: function () {
-
+      data.allItems.exp.forEach(function (current) {
+        current.calcPercentage();
+      });
     },
     getBudget: function () {
       return {
