@@ -135,7 +135,7 @@ let UIController = (function () {
     expenseLabel: '.budget__expenses--value',
     percentageLabel: '.budget__expenses--percentage',
     container: '.container',
-    expPercLabel: 'item__percentage'
+    expPercLabel: '.item__percentage'
   }
 
   return {
@@ -207,7 +207,7 @@ let UIController = (function () {
     displayPercentages: function (percentages) {
       let fields = document.querySelectorAll(DOMStrings.expPercLabel);
       let nodeListForEach = function (list, callback) {
-        for (let i = 0; i < list.length; i++) {
+        for (var i = 0; i < list.length; i++) {
           callback(list[i], i);
         }
       }
@@ -252,11 +252,12 @@ let appController = (function (budgetCtrl, UICtrl) {
   };
 
   let updatePercentages = function () {
-    // TODO calculate percentages
+    // calculate percentages
     budgetController.calculatePercentages();
-    // TODO read percentages from budget controller
+    // read percentages from budget controller
     let percentages = budgetController.getPercentages();
     // TODO update UI
+    UIController.displayPercentages(percentages);
     console.log(percentages);
   };
 
