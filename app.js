@@ -99,6 +99,12 @@ let budgetController = (function () {
         current.calcPercentage();
       });
     },
+    getPercentages: function () {
+      let allPercentages = data.allItems.exp.map(function (current) {
+        return current.getPercentage();
+      });
+      return allPercentages;
+    },
     getBudget: function () {
       return {
         budget: data.budget,
@@ -231,10 +237,11 @@ let appController = (function (budgetCtrl, UICtrl) {
 
   let updatePercentages = function () {
     // TODO calculate percentages
-
+    budgetController.calculatePercentages();
     // TODO read percentages from budget controller
-
+    let percentages = budgetController.getPercentages();
     // TODO update UI
+    console.log(percentages);
   };
 
   let controlAddItem = function () {
