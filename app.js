@@ -231,6 +231,8 @@ let appController = (function (budgetCtrl, UICtrl) {
       UICtrl.clearFields();
       // calc & update budget
       updateBudget();
+      // calc & update percentages
+      updatePercentages();
     }
   };
 
@@ -251,6 +253,8 @@ let appController = (function (budgetCtrl, UICtrl) {
       UIController.deleteListItem(itemId);
       // update and show new budget
       updateBudget();
+      // calc & update percentages
+      updatePercentages();
     }
   };
 
