@@ -211,6 +211,14 @@ let appController = (function (budgetCtrl, UICtrl) {
     UIController.displayBudget(budget);
   };
 
+  let updatePercentages = function () {
+    // TODO calculate percentages
+
+    // TODO read percentages from budget controller
+
+    // TODO update UI
+  };
+
   let controlAddItem = function () {
     // get input value
     let input = UICtrl.getInput();
