@@ -136,6 +136,21 @@ let UIController = (function () {
     percentageLabel: '.budget__expenses--percentage',
     container: '.container',
     expPercLabel: '.item__percentage'
+  };
+
+  let formatNumber = function (number, type) {
+    number = Math.abs(number);
+    number = number.toFixed(2);
+
+    let numberSplit = number.split('.');
+    let int = numberSplit[0];
+
+    if (int.length > 3) {
+      int = `${int.substr(0, int.length - 3)},${int.substr(int.length - 3, 3)}`;
+    }
+    let dec = numberSplit[1];
+
+    return (type === 'exp' ? '-' : '+') + ' ' + int + dec;
   }
 
   return {
@@ -218,20 +233,6 @@ let UIController = (function () {
           current.textContent = '---'
         }
       });
-    },
-    formatNumber: function (number, type) {
-      number = Math.abs(number);
-      number = number.toFixed(2);
-
-      let numberSplit = number.split('.');
-      let int = numberSplit[0];
-
-      if (int.length > 3) {
-        int = `${int.substr(0, int.length - 3)},${int.substr(int.length - 3, 3)}`;
-      }
-      let dec = numberSplit[1];
-
-      return (type === 'exp' ? '-' : '+') + ' ' + int + dec;
     },
     getDOMStrings: function () {
       return DOMStrings;
