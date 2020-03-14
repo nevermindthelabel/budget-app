@@ -208,7 +208,9 @@ let UIController = (function () {
       fieldsArray[0].focus();
     },
     displayBudget: function (obj) {
-      document.querySelector(DOMStrings.budgetLabel).textContent = obj.budget;
+      let type = '';
+      obj.budget >= 0 ? type = 'inc' : type = 'exp';
+      document.querySelector(DOMStrings.budgetLabel).textContent = formatNumber(obj.budget, type);
       document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalIncome;
       document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExpense;
 
