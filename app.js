@@ -150,7 +150,7 @@ let UIController = (function () {
     }
     let dec = numberSplit[1];
 
-    return (type === 'exp' ? '-' : '+') + ' ' + int + dec;
+    return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;
   }
 
   return {
@@ -171,7 +171,7 @@ let UIController = (function () {
           `<div class="item clearfix" id="inc-${obj.id}">
              <div class="item__description">${obj.description}</div>
                <div class="right clearfix">
-                 <div class="item__value">${obj.value}</div>
+                 <div class="item__value">${formatNumber(obj.value, type)}</div>
                    <div class="item__delete">
                     <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
                  </div>
