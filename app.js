@@ -135,7 +135,8 @@ let UIController = (function () {
     expenseLabel: '.budget__expenses--value',
     percentageLabel: '.budget__expenses--percentage',
     container: '.container',
-    expPercLabel: '.item__percentage'
+    expPercLabel: '.item__percentage',
+    dateLabel: '.budget__title--month'
   };
 
   let formatNumber = function (number, type) {
@@ -208,7 +209,6 @@ let UIController = (function () {
       fieldsArray[0].focus();
     },
     displayBudget: function (obj) {
-      let type = '';
       obj.budget >= 0 ? type = 'inc' : type = 'exp';
       document.querySelector(DOMStrings.budgetLabel).textContent = formatNumber(obj.budget, type);
       document.querySelector(DOMStrings.incomeLabel).textContent = formatNumber(obj.totalIncome, 'inc');
@@ -235,6 +235,11 @@ let UIController = (function () {
           current.textContent = '---'
         }
       });
+    },
+    displayMonth: function () {
+      let now = new Date();
+      let year = now.getFullYear();
+      let month = now.getMonth();
     },
     getDOMStrings: function () {
       return DOMStrings;
