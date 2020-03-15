@@ -236,11 +236,11 @@ let UIController = (function () {
         }
       });
     },
-    displayMonth: function () {
+    displayDate: function () {
       let now = new Date();
       let year = now.getFullYear();
       let month = now.toLocaleString('default', { month: 'long' }).toString();
-      document.querySelector(DOMStrings.dateLabel).textContent = month;
+      document.querySelector(DOMStrings.dateLabel).textContent = `${month} ${year}`;
     },
     getDOMStrings: function () {
       return DOMStrings;
@@ -331,7 +331,7 @@ let appController = (function (budgetCtrl, UICtrl) {
         totalExpense: 0,
         percentage: -1
       });
-      UIController.displayMonth();
+      UIController.displayDate();
       setUpEventListeners();
     }
   }
