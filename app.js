@@ -240,7 +240,7 @@ let UIController = (function () {
       let now = new Date();
       let year = now.getFullYear();
       let month = now.toLocaleString('default', { month: 'long' }).toString();
-      console.log(year, month)
+      document.querySelector(DOMStrings.dateLabel).textContent = month;
     },
     getDOMStrings: function () {
       return DOMStrings;
@@ -331,6 +331,7 @@ let appController = (function (budgetCtrl, UICtrl) {
         totalExpense: 0,
         percentage: -1
       });
+      UIController.displayMonth();
       setUpEventListeners();
     }
   }
