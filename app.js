@@ -239,7 +239,8 @@ let UIController = (function () {
     displayMonth: function () {
       let now = new Date();
       let year = now.getFullYear();
-      let month = now.getMonth();
+      let month = now.toLocaleString('default', { month: 'long' }).toString();
+      console.log(year, month)
     },
     getDOMStrings: function () {
       return DOMStrings;
